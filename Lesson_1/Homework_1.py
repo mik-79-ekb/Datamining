@@ -18,15 +18,6 @@ import time
 from pathlib import Path
 import requests
 
-def get_save_path(dir_name: str) -> Path:
-    save_path = Path(__file__).parent.joinpath(dir_name)
-    if not save_path.exists():
-        save_path.mkdir()
-    return save_path
-
-def _save(self, data: dict, file_path: Path):
-    file_path.write_text(json.dumps(data, ensure_ascii=False), encoding="utf-8")
-
 cat_product_path = get_save_path('Parser_results')
 url = 'https://5ka.ru/api/v2/categories/'
 response = requests.get(url)
